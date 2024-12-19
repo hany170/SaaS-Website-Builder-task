@@ -1,7 +1,5 @@
 # Project Installation Guide
 
-This guide will help you set up this project on your computer, even if you've never done programming before! 🚀
-
 ## Step 1: Install Required Software
 
 ### Installing Node.js
@@ -46,8 +44,7 @@ curl -fsSL https://bun.sh/install | bash
 2. Navigate to where you want to save the project
 3. Run:
 ```bash
-git clone [your-repository-url]
-cd [project-name]
+git clone [[your-repository-url]](https://github.com/hany170/SaaS-Website-Builder-task)
 ```
 
 ### If you're downloading manually:
@@ -67,7 +64,73 @@ bun install
 ```
 3. Wait for installation to complete (this might take a few minutes)
 
-## Step 4: Start the Project
+## Step 4: Project Setup Instructions
+1. Setting Up UploadThing
+
+   - Open https://uploadthing.com/ in your browser.
+   - Sign up for a new account or log in if you already have one.
+   - Once you're logged in, create a new app or project on the dashboard.
+   - After creating the app, you’ll see some API Keys. Copy the following keys:
+     - UPLOADTHING_SECRET
+     - UPLOADTHING_APP_ID
+     - UPLOADTHING_TOKEN
+
+   In your .env file, fill in the following:
+   UPLOADTHING_SECRET=your-uploadthing-secret  
+   UPLOADTHING_APP_ID=your-uploadthing-app-id  
+   UPLOADTHING_TOKEN=your-uploadthing-token  
+
+2. Setting Up Clerk
+
+   - Open https://clerk.dev/ in your browser.
+   - Sign up for a new account or log in if you already have one.
+   - Create a new project and name it (you can pick any name).
+   - In the API Keys section of your project dashboard, copy these keys:
+     - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+     - CLERK_SECRET_KEY
+
+   In your .env file, fill in the following:
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key  
+   CLERK_SECRET_KEY=your-clerk-secret-key  
+
+3. Setting Up Stripe
+
+   - Open https://stripe.com/ in your browser.
+   - Sign up for a new account or log in if you already have one.
+   - Navigate to the Developers section in the dashboard.
+   - Under the API keys tab:
+     - Copy the Publishable key (starts with pk_live_ or pk_test_).
+     - Copy the Secret key (starts with sk_live_ or sk_test_).
+
+   In your .env file, fill in the following:
+   STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key  
+   STRIPE_SECRET_KEY=your-stripe-secret-key  
+
+4. Setting Up the Database
+
+   - If you're using a MySQL database:
+     - Use your MySQL root password (the main password you set up for MySQL).
+     - Replace the word YourPassword in the following lines with your MySQL password:
+       DATABASE_URL=mysql://root:YourPassword@localhost:3306/plura  
+       LOCAL_DATABASE_URL=mysql://root:YourPassword@localhost:3306/plura  
+
+   In your .env file, fill in the following:
+   DATABASE_URL=mysql://root:YourPassword@localhost:3306/plura  
+   LOCAL_DATABASE_URL=mysql://root:YourPassword@localhost:3306/plura  
+
+5.  Fill in the rest of the variables with the following:
+   - NEXT_PUBLIC_URL=http://localhost:3000/  
+   - NEXT_PUBLIC_DOMAIN=localhost:3000  
+   - NEXT_PUBLIC_SCHEME=http://  
+   - NEXT_PUBLIC_CLERK_SIGN_IN_URL=/main/agency/auth/sign-in  
+   - NEXT_PUBLIC_CLERK_SIGN_UP_URL=/main/agency/auth/sign-up  
+   - NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/  
+   - NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/  
+   - NEXT_PUBLIC_PLATFORM_SUBSCRIPTION_PERCENT=1  
+   - NEXT_PUBLIC_PLATFORM_ONETIME_FEE=2  
+   - NEXT_PUBLIC_PLATFORM_AGENCY_PERCENT=1  
+
+## Step 5: Start the Project
 
 After installation is complete, you can start the development server:
 ```bash
@@ -94,22 +157,3 @@ http://localhost:3000
 bun install
 ```
 
-### Still having problems?
-1. Make sure you have a good internet connection
-2. Try running:
-```bash
-bun install --force
-```
-
-## Need Help?
-
-If you're stuck or something isn't working:
-1. Make sure you followed each step exactly
-2. Try closing and reopening your Terminal/Command Prompt
-3. Contact the project maintainer for help
-
-## Additional Notes
-
-- Don't close the Terminal window while the project is running
-- To stop the project, press Ctrl+C in the Terminal
-- Always make sure you're in the project directory when running commands
