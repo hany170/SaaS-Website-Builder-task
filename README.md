@@ -25,16 +25,9 @@ curl -fsSL https://bun.sh/install | bash
 5. Type `bun --version` to verify installation
 
 #### For Windows:
-First, you'll need to set up WSL (Windows Subsystem for Linux):
-1. Open PowerShell as Administrator
-2. Copy and paste this command:
-```powershell
-wsl --install
-```
-3. Restart your computer
-4. After restart, open PowerShell and run the Bun installation command:
+   - After restart, open PowerShell and run the Bun installation command:
 ```bash
-curl -fsSL https://bun.sh/install | bash
+powershell -c "irm bun.sh/install.ps1|iex"
 ```
 
 ## Step 2: Download the Project
@@ -109,6 +102,7 @@ bun install
 4. Setting Up the Database
 
    - If you're using a MySQL database:
+     - Create a connection for the project and name it plura.
      - Use your MySQL root password (the main password you set up for MySQL).
      - Replace the word YourPassword in the following lines with your MySQL password:
        DATABASE_URL=mysql://root:YourPassword@localhost:3306/plura  
@@ -116,9 +110,13 @@ bun install
 
    In your .env file, fill in the following:
    DATABASE_URL=mysql://root:YourPassword@localhost:3306/plura  
-   LOCAL_DATABASE_URL=mysql://root:YourPassword@localhost:3306/plura  
+   LOCAL_DATABASE_URL=mysql://root:YourPassword@localhost:3306/plura
 
-5.  Fill in the rest of the variables with the following:
+   then in the terminal run:
+      - npx prisma generate
+      - prisma db push
+
+6.  Fill in the rest of the variables with the following:
    - NEXT_PUBLIC_URL=http://localhost:3000/  
    - NEXT_PUBLIC_DOMAIN=localhost:3000  
    - NEXT_PUBLIC_SCHEME=http://  
