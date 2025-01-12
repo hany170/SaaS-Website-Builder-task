@@ -25,7 +25,7 @@ curl -fsSL https://bun.sh/install | bash
 5. Type `bun --version` to verify installation
 
 #### For Windows:
-   - After restart, open PowerShell and run the Bun installation command:
+   - Open PowerShell and run the Bun installation command:
 ```bash
 powershell -c "irm bun.sh/install.ps1|iex"
 ```
